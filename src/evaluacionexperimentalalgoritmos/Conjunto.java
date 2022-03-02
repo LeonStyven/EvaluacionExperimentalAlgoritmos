@@ -47,6 +47,7 @@ public class Conjunto
     Al final la bolsa resultante es inversa a la original sin el elemnto
     En caso de no encontrarlo entonces no hace nada
     */
+    
     public void Remove(Object elemento)
     {
         Bag<Object> bolsaAux = null; //Almacena elementos que vamos sacando
@@ -61,6 +62,14 @@ public class Conjunto
             n--;
         }
         
+    }
+    /*
+    Se sobreescribe el metodo para simplemente eliminar el primer elemento de la lista
+    */
+    public Object Remove(){
+        Object valor = bolsa.remove();
+        n--;
+        return valor;
     }
     
     /*Ver si un elemento esta en el conjunto
@@ -91,6 +100,5 @@ public class Conjunto
     //Saber si el conjunto esta vacio
     public Boolean isEmpty(){
         return bolsa == null;
-    }
-       
+    }    
 }
