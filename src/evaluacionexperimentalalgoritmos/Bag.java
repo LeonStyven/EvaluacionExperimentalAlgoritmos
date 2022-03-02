@@ -11,21 +11,21 @@ import java.util.NoSuchElementException;
  * @author jstca
  */
 //Definir la bolsa e implementar el iterador
-public class Bag<Item> implements Iterable<Item> {
+public class Bag<Object> implements Iterable<Object> {
     
     
-    private Node<Item> primero;
+    private Node<Object> primero;
     private int n;
     
     @Override
-    public Iterator<Item> iterator(){
+    public Iterator<Object> iterator(){
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
     //Definicion de nodo
-    private static class Node<Item> {
-        private Item item;
-        private Node<Item> next;
+    private static class Node<Object> {
+        private Object item;
+        private Node<Object> next;
     }
     
     //Constructor de la bolsa
@@ -45,27 +45,27 @@ public class Bag<Item> implements Iterable<Item> {
     }
     
     //Anadir un nuevo item a la bolsa
-    public void add(Item item){ //Recibe el nuevo item
-        Node<Item> oldfirst = primero; //Guarda la posicion del antiguo primero
-        primero = new Node<Item>();
-        primero.item = item; //Asigna el item como nuevo primero
+    public void add(Object object){ //Recibe el nuevo item
+        Node<Object> oldfirst = primero; //Guarda la posicion del antiguo primero
+        primero = new Node<Object>();
+        primero.item = object; //Asigna el item como nuevo primero
         primero.next=oldfirst; //Se asigna al nuevo, el antiguo primero como siguiente
         n++; //Incrementa el taaño de la lista
     }
     
-    public Item remove(){
+    public Object remove(){
         if(primero==null) return null;
-        Item item = primero.item;
+        Object object = primero.item;
         primero = primero.next;
         n--;
-        return item;
+        return object;
     }
     
     //Definicion del iterador
-    private class LinkedIterator implements Iterator<Item> {
-        private Node<Item> current;
+    private class LinkedIterator implements Iterator<Object> {
+        private Node<Object> current;
 
-        public LinkedIterator(Node<Item> primero) {
+        public LinkedIterator(Node<Object> primero) {
             current = primero;
         }
 
@@ -73,11 +73,11 @@ public class Bag<Item> implements Iterable<Item> {
         public void remove()      { throw new UnsupportedOperationException();  }
         //No esta implementado el remover
         
-        public Item next() {
+        public Object next() {
             if (!hasNext()) throw new NoSuchElementException();
-            Item item = current.item;
+            Object object = current.item;
             current = current.next; 
-            return item;
+            return object;
         }
     }
     
