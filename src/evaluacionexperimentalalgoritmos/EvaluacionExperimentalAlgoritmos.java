@@ -4,6 +4,7 @@
  */
 package evaluacionexperimentalalgoritmos;
 import edu.princeton.cs.algs4.*;
+import java.util.Random;
 /**
  *
  * @author jstca
@@ -15,13 +16,15 @@ public class EvaluacionExperimentalAlgoritmos {
      */
     public static void main(String[] args) {
         //Solicitar los ids de los equipos para luego calcular el hash
+        /*
         String id1 = StdIn.readLine();
         String id2 = StdIn.readLine();
         
         int hash = ((id1+id2).hashCode())%4; //Hash del equipo % 4
-        StdOut.println(hash);
+        
         
         //Crear 3 conjuntos
+        
         Conjunto conjunto1 = new Conjunto();
         Conjunto conjunto2 = new Conjunto();
         Conjunto result = new Conjunto();
@@ -39,8 +42,23 @@ public class EvaluacionExperimentalAlgoritmos {
         
         default: result = null;
         }
+        */
         
+        //Se pregunta al usuario sobre qué desea hacer con el tamaño de los Conjuntos
+        StdOut.println("Ingrese el tamaño que desea para los conjuntos: ");
+        int n = StdIn.readInt();
+        StdOut.println("El tiempo que se usó para realizar la operación Union es de: " + Prueba(n));
+        StdOut.println("¿Desea duplicar el tamaño del conjunto?\n Responda Si o No");
+        String respuesta = StdIn.readLine().toUpperCase();
         
+        //En caso de que quiera duplicar el tamaño, lo realiza
+        while(respuesta.equals("SI"))
+        {
+            n = n*2;
+            StdOut.println("El tiempo que se usó para realizar la operación Union es de: " + Prueba(n));
+            StdOut.println("¿Desea duplicar el tamaño del conjunto?\n Responda Si o No");
+            respuesta = StdIn.readLine().toUpperCase();
+        }
     }
     
     /*
@@ -90,4 +108,32 @@ public class EvaluacionExperimentalAlgoritmos {
         return resultado; //Es solo para que no de error
     }
     
+    public static long Prueba(int n)
+    {
+        //Crear 3 conjuntos
+        Conjunto conjunto1 = new Conjunto();
+        Conjunto conjunto2 = new Conjunto();
+        Conjunto result = new Conjunto();
+        
+        Random varRandom = new Random();
+        
+        //Se crea un ciclo que llena dos conjuntos creados con números aleatorios 
+        //importados desde la librería de java
+        for(int i = 0; i<n ; i++ )
+        {
+            
+            conjunto1.Add(varRandom.nextInt(1,501));
+            conjunto2.Add(varRandom.nextInt(1,501));
+        }
+        
+        long tiempoInicio = System.currentTimeMillis();
+        
+        //Se realiza la prueba la cantidad de veces solicitada para medir el tiempo de esta
+        for(int j = 0; j < 20; j++){
+            result = Union(conjunto1, conjunto2);
+        }
+        
+        //Se compara el tiempo que tarda en hacer cada prueba y se retorna
+        return (System.currentTimeMillis()-tiempoInicio);
+    }
 }

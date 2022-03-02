@@ -18,7 +18,8 @@ public class Conjunto
     //Se declara el conjunto vacío
     public Conjunto()
     {    
-       bolsa = null;
+       bolsa = new Bag();
+       
        n = 0;
     }
     /*
