@@ -47,18 +47,17 @@ public class EvaluacionExperimentalAlgoritmos {
         //Se pregunta al usuario sobre qué desea hacer con el tamaño de los Conjuntos
         StdOut.println("Ingrese el tamaño que desea para los conjuntos: ");
         int n = StdIn.readInt();
-        StdOut.println("El tiempo que se usó para realizar la operación Union es de: " + Prueba(n));
-        StdOut.println("¿Desea duplicar el tamaño del conjunto?\n Responda Si o No");
         String respuesta = StdIn.readLine().toUpperCase();
         
-        //En caso de que quiera duplicar el tamaño, lo realiza
-        while(respuesta.equals("SI"))
-        {
-            n = n*2;
+        do{
             StdOut.println("El tiempo que se usó para realizar la operación Union es de: " + Prueba(n));
-            StdOut.println("¿Desea duplicar el tamaño del conjunto?\n Responda Si o No");
+            StdOut.println("Introduzca cualquier cosa para duplicar\n o introduzca N para detener");
+            
+            //En caso de que quiera duplicar el tamaño, lo realiza
             respuesta = StdIn.readLine().toUpperCase();
-        }
+            n = n*2;
+        }while(!respuesta.equals("N1"));
+
     }
     
     /*
@@ -121,7 +120,6 @@ public class EvaluacionExperimentalAlgoritmos {
         //importados desde la librería de java
         for(int i = 0; i<n ; i++ )
         {
-            
             conjunto1.Add(varRandom.nextInt(1,501));
             conjunto2.Add(varRandom.nextInt(1,501));
         }
