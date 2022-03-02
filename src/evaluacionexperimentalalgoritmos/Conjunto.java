@@ -4,6 +4,8 @@
  */
 package evaluacionexperimentalalgoritmos;
 
+import edu.princeton.cs.algs4.StdOut;
+
 /**
  *
  * @author jstca
@@ -38,6 +40,7 @@ public class Conjunto
     {
         //Verificar que no este el elemento
         if(!In(elemento)){
+            StdOut.println(bolsa);
             bolsa.add(elemento);
             n++;
         }
@@ -80,7 +83,7 @@ public class Conjunto
     
     public Boolean In(Object elemento)
     {
-        Bag<Object> bolsaAux = null; //Almacena elementos que vamos sacando
+        Bag<Object> bolsaAux = new Bag(); //Almacena elementos que vamos sacando
         Boolean existe = false;
         
         //Vamos sacando elementos
