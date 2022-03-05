@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 /**
  *
- * @author jstca
+ * @author Julian Esteban Gomez Lopez - Julian Styven Colorado Agudelo
  */
 //Definir la bolsa e implementar el iterador
 public class Bag<Object> implements Iterable<Object> {

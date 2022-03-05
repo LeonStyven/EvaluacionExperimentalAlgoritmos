@@ -8,7 +8,7 @@ import edu.princeton.cs.algs4.StdOut;
 
 /**
  *
- * @author jstca
+ * @author Julian Esteban Gomez Lopez - Julian Styven Colorado Agudelo
  */
 public class Conjunto 
 {
@@ -40,7 +40,7 @@ public class Conjunto
     {
         //Verificar que no este el elemento
         if(!In(elemento)){
-            StdOut.println(bolsa);
+            //StdOut.println(bolsa);
             bolsa.add(elemento);
             n++;
         }
