@@ -50,13 +50,16 @@ public class EvaluacionExperimentalAlgoritmos {
         String respuesta = StdIn.readLine().toUpperCase();
         
         do{
+            
             StdOut.println("El tiempo que se usó para realizar la operación Union es de: " + Prueba(n));
-            StdOut.println("Introduzca cualquier cosa para duplicar\n o introduzca N para detener");
+            StdOut.println("Se analizaron "+ n +" elementos");
+            StdOut.println("Introduzca cualquier cosa para duplicar\no introduzca N para detener");
             
             //En caso de que quiera duplicar el tamaño, lo realiza
             respuesta = StdIn.readLine().toUpperCase();
+            
             n = n*2;
-        }while(!respuesta.equals("N1"));
+        }while(!respuesta.equals("N"));
 
     }
     
