@@ -57,7 +57,7 @@ public class EvaluacionExperimentalAlgoritmos {
             
             StdOut.println("El tiempo que se usó para realizar todas las uniones es de: " + Prueba(n));
             StdOut.println("Se analizo un conjunto con "+ n +" elementos");
-            StdOut.println("Introduzca cualquier cosa para duplicar\no introduzca N para detener");
+            StdOut.println("IntrodCuzca cualquier cosa para duplicar\no introduzca N para detener");
             
             //En caso de que quiera duplicar el tamaño, lo realiza
             respuesta = StdIn.readLine().toUpperCase();
@@ -138,7 +138,9 @@ public class EvaluacionExperimentalAlgoritmos {
             long tiempoPrueba = System.currentTimeMillis();
             result = Union(conjunto1, conjunto2);
             //Se compara el tiempo que tarda en hacer cada prueba y se retorna lo que tarda cada prueba
-            StdOut.println("La union numero " + j + " tardo: " + (System.currentTimeMillis()-tiempoPrueba));
+            
+            //StdOut.println("La union numero " + j + " tardo: " + (System.currentTimeMillis()-tiempoPrueba));
+            //Se dejan comentadas por defecto para optimizar el código y su tiempo de ejecución
         }
         return (System.currentTimeMillis()-tiempoInicioPrueba);
     }
