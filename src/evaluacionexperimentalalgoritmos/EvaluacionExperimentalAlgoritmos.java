@@ -74,29 +74,50 @@ public class EvaluacionExperimentalAlgoritmos {
         Conjunto resultado = grupo1; //Se empieza asi para luego ir añadiendo los elementos del otro conjunto
         
         int nGrupo2 = grupo2.Size();
-        //Se recorre el segundo conjunto y se van sacando sus elementos para pasarlos al resultado
+        
+        //Se recorre el segundo conjunto y se van sacando los elementos que no esten para pasarlos al resultado
         for(int i = 0; i<nGrupo2;i++){
-            resultado.Add(grupo2.Remove());
+            Object elemento = grupo2.Remove();
+            if(!grupo2.In(elemento))
+            {
+                resultado.Add(elemento);
+            }
+            
         }
         return resultado;
     }
+    
     /*
     Interseccion entre conjuntos
     */
     public static Conjunto Intersection(Conjunto grupo1, Conjunto grupo2){
         Conjunto resultado = new Conjunto(); //Aqui se guardan los objetos en comun
-        int Size = grupo1.Size();
+        int Size;
+        //Se usa como tamaño el conjunto mas grande
+        if(grupo1.Size() >= grupo2.Size())
+            Size = grupo1.Size();
         
-        //Se recorre uno de los conjuntos y si cada elemento se consulta si esta en el otro conjunto, si lo encuentra entonces lo añade al conjunto resultado
+        else
+            Size = grupo2.Size();
+        
+        //Se recorre el conjunto mayor y cada elemento se busca en el otro conjunto, si lo encuentra entonces lo añade al resultado
         for(int i=0; i<Size;i++){ 
-            Object element = grupo1.Remove();
-            if(grupo2.In(element)) resultado.Add(element);
+            if(grupo1.Size() >= grupo2.Size())
+            {
+                Object element = grupo1.Remove();
+                if(grupo2.In(element)) resultado.Add(element);
+            }
+            else 
+            {
+                Object element = grupo2.Remove();
+                if(grupo1.In(element)) resultado.Add(element);
+            }
         }
         return resultado;
     }
     
     public static Conjunto Difference(Conjunto grupo1, Conjunto grupo2){
-        Conjunto resultado = new Conjunto();//Aqui se guardan los objetos que esten en el primero y no esten en el segundo
+        Conjunto resultado = grupo1;//Aqui se guardan los objetos que esten en el primero y no esten en el segundo
         int Size = grupo1.Size();
         
         //Se recorre el primer conjunto y cada elemento se busca que no este en el segundo para añadirlo al resultado

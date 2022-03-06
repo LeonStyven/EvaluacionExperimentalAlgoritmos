@@ -13,15 +13,12 @@ import edu.princeton.cs.algs4.StdOut;
 public class Conjunto 
 {
     private Bag<Object> bolsa;
-    //add, remove, in, size, isEmpty
-    //Hash del equipo
     private int n;
     
     //Se declara el conjunto vacío
     public Conjunto()
     {    
        bolsa = new Bag();
-       
        n = 0;
     }
     /*
